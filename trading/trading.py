@@ -46,7 +46,8 @@ def trade(events, strategy, portfolio, execution, heartbeat):
 
 if __name__ == "__main__":
     # Set up logging
-    logging.config.fileConfig('../logging.conf')
+    #logging.config.fileConfig('../logging.conf')  # Linux format.
+    logging.config.fileConfig('..\logging.conf')  # Windows format.
     logger = logging.getLogger('qsforex.trading.trading')
 
     # Set the number of decimal places to 2
