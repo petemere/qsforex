@@ -84,6 +84,11 @@ class Portfolio(object):
             print(header[:-2])
         return out_file
 
+    def create_sharpe_ratio(self, returns, periods):
+        # Not implemented yet.
+        return 0.0
+        
+
     def output_results(self):
         # Closes off the Backtest.csv file so it can be 
         # read via Pandas without problems
@@ -107,6 +112,16 @@ class Portfolio(object):
         df.to_csv(out_file, index=True)
         
         print("Simulation complete and results exported to %s" % out_filename)
+        print("Generating summary stats.")
+
+        sharpe_ratio = self.create_sharpe_ratio(df["Returns"], periods = 1)
+        stats = [("Total Return", "%0.2f%%" % \
+                    ((df["Equity"][-1] - 1.0) * 100.0)),
+                 ("cagr", "%0.2f%%" % 0.0),
+                 ("Sharpe Ratio", "%0.2f" % sharpe_ratio),
+                 ("Max Drawdown", "%0.2f%%" % (max_dd * 100.0)),
+                 ("Drawdown Duration", "%d" % dd_duration)]
+        return stats
 
     def update_portfolio(self, tick_event):
         """

@@ -10,7 +10,8 @@ from qsforex.data.price import HistoricCSVPriceHandler
 
 if __name__ == "__main__":
     # Trade on GBP/USD and EUR/USD
-    pairs = ["GBPUSD", "EURUSD"]
+    #pairs = ["GBPUSD", "EURUSD"]
+    pairs = ["GBPUSD"]
     
     # Create the strategy parameters for the
     # MovingAverageCrossStrategy

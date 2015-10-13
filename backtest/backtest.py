@@ -3,7 +3,7 @@ from __future__ import print_function
 try:
     import Queue as queue
 except ImportError:
-    import queue
+    import queue   # This is what Queue is called in Python 3.x
 import time
 
 from qsforex import settings
